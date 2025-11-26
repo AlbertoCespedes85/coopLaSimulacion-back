@@ -35,7 +35,9 @@ app.use('/api/services', servicesRoutes);
 app.use('/api/events', eventsRoutes);
 app.use('/api/rooms', roomsRoutes);
 app.use('/api/reviews', reviewsRoutes);
-
+app.get('/', (req, res) => {
+  res.send('Backend funcionando ✅');
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
