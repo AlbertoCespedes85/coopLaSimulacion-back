@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import cors from 'cors';
 import { fileURLToPath } from 'url';
+import executeQuery from './db.js';
 
 // Importaciones de rutas:
 import usersRoutes from './modules/users/users.routes.js';
