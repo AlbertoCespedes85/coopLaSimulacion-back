@@ -35,7 +35,7 @@ app.use('/api/services', servicesRoutes);
 app.use('/api/events', eventsRoutes);
 app.use('/api/rooms', roomsRoutes);
 app.use('/api/reviews', reviewsRoutes);
-router.get('/test-db', async (req, res) => {
+app.get('/test-db', async (req, res) => {
   try {
     const result = await executeQuery('SELECT 1 AS test');
     res.json({ success: true, result });
