@@ -25,7 +25,7 @@ class UserController {
             const data = [user_name, email, hashedPassword];
             await usersDal.register(data);
             //Crear token verificacion de correo
-            const token = jwt.sign({email} , process.env.JWT_SECRET, {expiresIn: "1h"})
+            /*const token = jwt.sign({email} , process.env.JWT_SECRET, {expiresIn: "1h"})
             const verificationLink = `${process.env.SERVER_URL_PUBLIC}api/users/verify-email?token=${token}`
             //Lo que se manda en el email
             const mailOptions = {
@@ -35,7 +35,7 @@ class UserController {
                 html: `<h2>Link para confirmar registro</h2><p>${verificationLink}</p>`,
             };
             const emailResult = await transporter.sendMail(mailOptions);
-            res.status(200).json({message:"usuario creado"})
+            res.status(200).json({message:"usuario creado"})*/
         } catch (error) {
             if(error.isLogged){
                 res.status(401).json(error.message);
