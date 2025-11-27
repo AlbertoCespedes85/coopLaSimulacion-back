@@ -34,8 +34,8 @@ class UserController {
                 subject: "Confirma tu cuenta",
                 html: `<h2>Link para confirmar registro</h2><p>${verificationLink}</p>`,
             };
-            const emailResult = await transporter.sendMail(mailOptions);
-            res.status(200).json({message:"usuario creado"})*/
+            const emailResult = await transporter.sendMail(mailOptions);*/
+            res.status(200).json({message:"usuario creado"})
         } catch (error) {
             if(error.isLogged){
                 res.status(401).json(error.message);
