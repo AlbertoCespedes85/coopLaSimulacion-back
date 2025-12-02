@@ -143,7 +143,7 @@ class UserController {
     try {
       // envío los datos de reserva del form a la BD:
       await usersDal.makeRoomReservation(req.body);
-
+      /*
       //se manda un email al admin con la reserva del user:
       const emailReservationHTML = generateReservationEmailHTML(req.body);
 
@@ -155,7 +155,7 @@ class UserController {
       }
 
       const sendingEmail = await transporter.sendMail(mailOptions);
-
+*/
       // res para indicar que todo fue correcto:
       res.status(200).json({ message: 'Solicitud de reserva enviada correctamente.' })
 
