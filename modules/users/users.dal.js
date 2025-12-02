@@ -165,7 +165,7 @@ class UserDal {
   updateUserById = async (user_id, data) => {
   const { user_name, lastname, password, email, phone_number, specialty, avatar } = data;
   const query = `
-    UPDATE users
+    UPDATE user
     SET user_name = ?, lastname = ?, email = ?, phone_number = ?, specialty = ?, avatar = ? , password =?
     WHERE user_id = ?
   `;
