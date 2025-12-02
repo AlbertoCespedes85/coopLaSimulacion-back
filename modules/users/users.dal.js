@@ -162,15 +162,15 @@ class UserDal {
     }
   }
 
-  updateUserById = async (user_id, data) => {
+  updateUserById = async (id, data) => {
   const { user_name, lastname, password, email, phone_number, specialty, avatar } = data;
-  const query = `
+  let sql = `
     UPDATE user
     SET user_name = ?, lastname = ?, email = ?, phone_number = ?, specialty = ?, avatar = ? , password =?
     WHERE user_id = ?
   `;
-  const params = [user_name, lastname, email, phone_number, specialty, avatar, password , user_id];
-  return await pool.query(query, params);
+  const params = [user_name, lastname, email, phone_number, specialty, avatar, password ,id];
+  await executeQuery(sql, params);
 };
 }
 
