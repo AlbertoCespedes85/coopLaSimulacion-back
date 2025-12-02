@@ -134,7 +134,7 @@ class UserDal {
         socialmedia_link,
         ilumination_material,
         number_of_attendees,
-        aditional_requirement,
+        additional_requirement,
         user_policy_confirmation,
       } = data;
 
@@ -152,7 +152,7 @@ class UserDal {
         socialmedia_link,
         ilumination_material,
         number_of_attendees,
-        aditional_requirement,
+        additional_requirement,
         user_policy_confirmation,
       ];
 
