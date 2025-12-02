@@ -272,7 +272,7 @@ class UserController {
     const defaultUserValues = {
       user_name: "user",
       lastname: "",
-      password: "user",
+      password: "User1234*",
       email: "user@hotmail.com",
       phone_number: "",
       specialty: "",
