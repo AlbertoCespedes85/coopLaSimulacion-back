@@ -139,31 +139,15 @@ class UserController {
   }
 
   makeRoomReservation = async (req, res) => {
-    console.log("REQBODY PARA BD e EMAIL RESEV", req.body);
-    try {
-      // envío los datos de reserva del form a la BD:
-      await usersDal.makeRoomReservation(req.body);
-      /*
-      //se manda un email al admin con la reserva del user:
-      const emailReservationHTML = generateReservationEmailHTML(req.body);
-
-      const mailOptions = {
-        from: `"Reservas La Simulación" <${process.env.EMAIL_USER}>`,
-        to: "laezne@gmail.com",
-        subject: `Nueva solicitud de reserva`,
-        html: emailReservationHTML
-      }
-
-      const sendingEmail = await transporter.sendMail(mailOptions);
-*/
-      // res para indicar que todo fue correcto:
-      res.status(200).json({ message: 'Solicitud de reserva enviada correctamente.' })
-
-    } catch (error) {
-      console.log("ERRROR CONTROLLLER RESERV", error);
-      res.status(500).json({ message: 'server error' })
-    }
+  console.log("REQBODY PARA BD e EMAIL RESEV", req.body);
+  try {
+    await usersDal.makeRoomReservation(req.body);
+    res.status(200).json({ message: 'Solicitud de reserva enviada correctamente.' })
+  } catch (error) {
+    console.log("ERROR CONTROLLER RESERV", error);
+    res.status(500).json({ message: 'server error' })
   }
+}
 
   deleteUser = async (req, res) => {
     try {
