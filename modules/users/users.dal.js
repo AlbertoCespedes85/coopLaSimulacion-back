@@ -138,7 +138,7 @@ class UserDal {
         user_policy_confirmation,
       } = data;
 
-      let sql = 'INSERT INTO reservation (user_id, room_id, phone_number, date, start_hour, end_hour, proyect_description, proyect_type, socialmedia_link, ilumination_material, number_of_attendees, aditional_requirement, user_policy_confirmation) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)';
+      let sql = 'INSERT INTO reservation (user_id, room_id, phone_number, date, start_hour, end_hour, proyect_description, proyect_type, socialmedia_link, ilumination_material, number_of_attendees, additional_requirement, user_policy_confirmation) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)';
 
       let values = [
         user_id,
