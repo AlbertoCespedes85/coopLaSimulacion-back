@@ -263,9 +263,9 @@ class UserController {
 
   resetUserToDefault = async (req, res) => {
   try {
-    const { user_id } = req.params;
-
-    if (parseInt(user_id) !== 29) {
+    const { id } = req.params;
+    console.log(req.params)
+    if (parseInt(id) !== 29) {
       return res.status(400).json({ message: "Solo se puede resetear al usuario 29" });
     }
 
@@ -279,7 +279,7 @@ class UserController {
       avatar: null
     };
 
-    await usersDal.updateUserById(user_id, defaultUserValues);
+    await usersDal.updateUserById(id, defaultUserValues);
 
     res.status(200).json({ message: "Usuario 29 reseteado a valores predeterminados" });
   } catch (error) {
