@@ -53,7 +53,7 @@ export const reservationSchema = z.object({
     .string({message: "El campo número de asistentes es obligatorio"})
     .nonempty({message: "El campo número de asistentes es obligatorio"})
     .max(100, {message: "El campo número de asistentes no puede tener más de 100 caracteres"}),
-  aditional_requirement: z
+  additional_requirement: z
     .string()
     .max(250, {message: "El campo de requerimientos adicionales no puede tener más de 250 caracteres"})
     .nullable(),
