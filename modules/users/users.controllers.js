@@ -268,11 +268,13 @@ class UserController {
     if (parseInt(id) !== 29) {
       return res.status(400).json({ message: "Solo se puede resetear al usuario 29" });
     }
+    const defaultPassword = "User1234*";
+    const hashedPassword = await hashPassword(defaultPassword);
 
     const defaultUserValues = {
       user_name: "user",
       lastname: "",
-      password: "User1234*",
+      password: hashedPassword,
       email: "user@hotmail.com",
       phone_number: "",
       specialty: "",
