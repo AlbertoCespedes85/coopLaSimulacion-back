@@ -259,6 +259,34 @@ class UserController {
       return res.status(500).json({ message: 'Error del servidor' })
     }
   }
+
+
+  resetUserToDefault = async (req, res) => {
+  try {
+    const { user_id } = req.params;
+
+    if (parseInt(user_id) !== 29) {
+      return res.status(400).json({ message: "Solo se puede resetear al usuario 29" });
+    }
+
+    const defaultUserValues = {
+      user_name: "user",
+      lastname: "",
+      password: "user",
+      email: "user@hotmail.com",
+      phone_number: "",
+      specialty: "",
+      avatar: null
+    };
+
+    await usersDal.updateUserById(user_id, defaultUserValues);
+
+    res.status(200).json({ message: "Usuario 29 reseteado a valores predeterminados" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Error al resetear usuario" });
+  }
+};
 }
 
 export default new UserController();

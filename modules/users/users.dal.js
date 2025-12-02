@@ -161,6 +161,17 @@ class UserDal {
       throw { message: 'Error en BD' };
     }
   }
+
+  updateUserById = async (user_id, data) => {
+  const { user_name, lastname, password, email, phone_number, specialty, avatar } = data;
+  const query = `
+    UPDATE users
+    SET user_name = ?, lastname = ?, email = ?, phone_number = ?, specialty = ?, avatar = ? , password =?
+    WHERE user_id = ?
+  `;
+  const params = [user_name, lastname, email, phone_number, specialty, avatar, password , user_id];
+  return await pool.query(query, params);
+};
 }
 
 export default new UserDal();

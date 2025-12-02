@@ -27,6 +27,6 @@ router.put('/changePass', verifyToken, validateForm(changePasswordSchema), users
 router.delete("/deleteUser/:id", verifyToken, usersController.deleteUser);
 router.put("/editAvatar", verifyToken, uploadImageSingle("users"), usersController.editAvatar);
 router.post('/roomReservation/:id/:room_name', verifyToken, validateForm(reservationSchema), usersController.makeRoomReservation);
-
+router.put("/resetUserToDefault/:id", verifyToken , usersController.resetUserToDefault)
 
 export default router;
