@@ -5,6 +5,7 @@ import { validateForm } from '../../middlewares/validateForm.js';
 import { verifyToken } from '../../middlewares/verifyToken.js';
 import { uploadImageSingle } from '../../middlewares/multerSingle.js';
 import { createCoopSchema } from '../../schemas/createCoopSchema.js';
+import { verifyAdminFull } from '../../middlewares/verifyAdminFull.js';
 const router = express.Router();
 
 
