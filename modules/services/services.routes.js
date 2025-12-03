@@ -14,10 +14,10 @@ router.get('/', function(req, res, next) {
 router.post('/servicescoop', validateForm(formCoopSchema) , servicesControllers.sendMailServCoop);
 router.get('/servicescoop', servicesControllers.getDataServCoop)
 router.get('/adminservicescoop', verifyToken , servicesControllers.getDataServCoop)
-router.post('/createservicecoop', verifyToken , uploadImageSingle("servCoop") ,validateForm(createCoopSchema) , servicesControllers.createServCoop);
-router.put('/delservcoop', verifyToken  , servicesControllers.servCoopDel);
-router.get('/editservcoop/:id',verifyToken , servicesControllers.getDataEditServCoop)
-router.put('/editservcoop/:id/:img',verifyToken ,  uploadImageSingle("servCoop") , validateForm(createCoopSchema), servicesControllers.editDataServCoop)
+router.post('/createservicecoop', verifyToken ,verifyAdminFull, uploadImageSingle("servCoop") ,validateForm(createCoopSchema) , servicesControllers.createServCoop);
+router.put('/delservcoop', verifyToken  ,verifyAdminFull, servicesControllers.servCoopDel);
+router.get('/editservcoop/:id',verifyToken ,verifyAdminFull, servicesControllers.getDataEditServCoop)
+router.put('/editservcoop/:id/:img',verifyToken ,verifyAdminFull,  uploadImageSingle("servCoop") , validateForm(createCoopSchema), servicesControllers.editDataServCoop)
 
 
 export default router;
