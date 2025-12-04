@@ -5,6 +5,7 @@ import { uploadImageMulti } from '../../middlewares/multerMultifile.js';
 import { validateForm } from '../../middlewares/validateForm.js';
 import {createRoomSchema } from '../../schemas/createRoomSchema.js'
 import { handleMulterError } from '../../helpers/handleMulterError.js';
+import { verifyAdminFull } from '../../middlewares/verifyAdminFull.js';
 
 const router = express.Router();
 
