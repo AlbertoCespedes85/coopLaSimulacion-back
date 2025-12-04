@@ -8,12 +8,12 @@ import { handleMulterError } from '../../helpers/handleMulterError.js';
 
 const router = express.Router();
 
-router.post('/createRoom', verifyToken, handleMulterError(uploadImageMulti("rooms")), validateForm(createRoomSchema), roomsControllers.createRoom);
+router.post('/createRoom', verifyToken,verifyAdminFull, handleMulterError(uploadImageMulti("rooms")), validateForm(createRoomSchema), roomsControllers.createRoom);
 router.get('/room/:id', roomsControllers.getRoomWithImagesById);
-router.put('/editRoom/:id', verifyToken, validateForm(createRoomSchema), roomsControllers.editRoom);
+router.put('/editRoom/:id', verifyToken, verifyAdminFull , validateForm(createRoomSchema), roomsControllers.editRoom);
 router.get('/imagesByRoomId/:id', verifyToken, roomsControllers.imagesByRoomId);
-router.delete ('/deleteImg', verifyToken, roomsControllers.deleteImg);
-router.post('/addImages', verifyToken, handleMulterError(uploadImageMulti("rooms")), roomsControllers.addImages);
+router.delete ('/deleteImg', verifyToken, verifyAdminFull , roomsControllers.deleteImg);
+router.post('/addImages', verifyToken,verifyAdminFull, handleMulterError(uploadImageMulti("rooms")), roomsControllers.addImages);
 router.get('/rooms', roomsControllers.getRoomsData);
 
 export default router;
